@@ -854,7 +854,7 @@ class Redis
         # Select just the keys unless we want scores
         results = results.map(&:first) unless with_scores
 
-        start = [0, results.length - start].max if start < 0
+        start = [0, start + results.length].max if start < 0
         results = results[start..stop]
 
         if results
